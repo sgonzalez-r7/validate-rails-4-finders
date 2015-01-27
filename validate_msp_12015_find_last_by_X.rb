@@ -12,7 +12,7 @@ def make_loots
                            workspace_id: workspace.id,
                            host_id:      host.id,
                            service_id:   service.id,
-                           ltype:        'pirate booty')
+                           ltype:        'host.windows.screenshot')
 end
 
 
@@ -20,8 +20,8 @@ def validate
   loot_ids = make_loots.map { |e| e.id }
   loots    = ::Mdm::Loot.where(id: loot_ids)
 
-  loots_where_last = loots.where(ltype: 'pirate booty').last
-  loots_find_last  = loots.find_last_by_ltype('pirate booty')
+  loots_where_last = loots.where(ltype: 'host.windows.screenshot').last
+  loots_find_last  = loots.find_last_by_ltype('host.windows.screenshot')
 
   puts
   puts '*** loots_where_last ***'
